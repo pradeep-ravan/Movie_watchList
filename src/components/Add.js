@@ -6,7 +6,6 @@ export const Add = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
-  //  let API = process.env.REACT_APP_TMDB_KEY
 
   const onChange = (e) => {
     e.preventDefault();
