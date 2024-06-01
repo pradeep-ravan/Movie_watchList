@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
+export const API = process.env.REACT_APP_TMDB_KEY;
 
 export const Add = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
+  //  let API = process.env.REACT_APP_TMDB_KEY
+
   const onChange = (e) => {
     e.preventDefault();
 
-    setQuery(e.target.value);
+    setQuery(e?.target?.value);
 
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${API}&page=1&include_adult=false&query=${e.target.value}`
     )
       .then((res) => res.json())
       .then((data) => {
